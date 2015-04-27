@@ -8,4 +8,21 @@ set(SOURCE_FILES
 	src/Matrix.cpp src/Matrix.h
 	)
 
-add_executable(gauss_cpp ${SOURCE_FILES})
+add_executable(gauss ${SOURCE_FILES})
+
+
+
+# cxxtest
+find_package(CxxTest)
+if(CXXTEST_FOUND)
+file(MAKE_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/test)
+set(CXXTEST_USE_PYTHON TRUE)
+include_directories(${CXXTEST_INCLUDE_DIR})
+set(TEST_SOURCE_FILES
+	test/test.cpp
+	${CMAKE_CURRENT_SOURCE_DIR}/test/test.h
+	)
+enable_testing()
+CXXTEST_ADD_TEST(unittest_gauss ${TEST_SOURCE_FILES})
+add_executable(gauss_test ${TEST_SOURCE_FILE} ${SOURCE_FILES})
+endif()
