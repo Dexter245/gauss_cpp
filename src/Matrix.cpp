@@ -10,14 +10,13 @@ Matrix::Matrix(int numRows, int numColumns) {
     this->_numRows = numRows;
     this->_numColumns = numColumns;
     _initArray();
-//    toIdentity();
 
 }
 
 Matrix::~Matrix() {
 
     if(_mat != 0){
-        for(int i = 0; i < _numColumns; i++)
+        for(int i = 0; i < _numRows; i++)
             delete [] _mat[i];
         delete [] _mat;
         _mat = 0;

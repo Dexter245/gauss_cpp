@@ -40,6 +40,6 @@ set(TEST_SOURCE_FILES
 	test/testMatrix.cpp
 	src/Matrix.cpp
 	)
-add_executable(gauss_test ${TEST_SOURCE_FILES})
+add_executable(gauss_test ${TEST_SOURCE_FILES} test/testMatrix.h)
 target_link_libraries(gauss_test ${GTEST_LIBRARIES} pthread)
 
