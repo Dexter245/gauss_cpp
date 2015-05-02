@@ -6,8 +6,12 @@
 #define GAUSS_CPP_MATRIX_H
 
 #include <string>
+//#include <gtest/gtest.h>
 
 class Matrix {
+
+//friend class TestMatrix;
+//friend class testing::Test;
 
 private:
     double **_mat = 0;
@@ -29,6 +33,8 @@ public:
     void toRowSwitch(int row1, int row2);
     void toScaleAndAdd(int rowToScale, double scaleValue,
                          int rowToAddTo);
+
+    double** getMatrixData() { return _mat; }
 
 
 

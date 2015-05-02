@@ -10,7 +10,7 @@ Matrix::Matrix(int numRows, int numColumns) {
     this->_numRows = numRows;
     this->_numColumns = numColumns;
     _initArray();
-    toIdentity();
+//    toIdentity();
 
 }
 
@@ -71,6 +71,9 @@ void Matrix::_initArray() {
     _mat = new double*[_numRows];
     for(int i = 0; i < _numRows; i++){
         _mat[i] = new double[_numColumns];
+        for(int j = 0; j < _numColumns; j++){
+            _mat[i][j] = 0;
+        }
     }
 
 }
