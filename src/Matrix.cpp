@@ -76,3 +76,18 @@ void Matrix::_initArray() {
     }
 
 }
+
+bool Matrix::equals(Matrix &otherMatrix) {
+    if(_numRows != otherMatrix._numRows)
+        return false;
+    if(_numColumns != otherMatrix._numColumns)
+        return false;
+    for(int i = 0; i < _numRows; i++){
+        for(int j = 0; j < _numColumns; j++){
+            if(_mat[i][j] != otherMatrix._mat[i][j])
+                return false;
+        }
+    }
+    return true;
+}
+

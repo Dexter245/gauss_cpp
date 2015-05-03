@@ -6,12 +6,9 @@
 #define GAUSS_CPP_MATRIX_H
 
 #include <string>
-//#include <gtest/gtest.h>
+#include <vector>
 
 class Matrix {
-
-//friend class TestMatrix;
-//friend class testing::Test;
 
 private:
     double **_mat = 0;
@@ -25,7 +22,9 @@ public:
     ~Matrix();
 
     void multiply(Matrix otherMatrix);
+
     bool isRowEchelonForm();//ZeilenStufenForm
+    bool equals(Matrix &otherMatrix);
     std::string toString();
 
     void toIdentity();
@@ -33,9 +32,16 @@ public:
     void toRowSwitch(int row1, int row2);
     void toScaleAndAdd(int rowToScale, double scaleValue,
                          int rowToAddTo);
-
     double** getMatrixData() { return _mat; }
 
+    template<typename type>
+    void set(type &values){
+        for(int i = 0; i < _numRows; i++) {
+            for (int j = 0; j < _numColumns; j++) {
+                _mat[i][j] = values[i][j];
+            }
+        }
+    }
 
 
 
