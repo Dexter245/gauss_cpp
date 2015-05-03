@@ -12,8 +12,8 @@ class Matrix {
 
 private:
     double **_mat = 0;
-    int _numRows = 0;
-    int _numColumns = 0;
+    const int _rows = 0;
+    const int _columns = 0;
 
     void _initArray();
 
@@ -36,8 +36,8 @@ public:
 
     template<typename type>
     void set(type &values){
-        for(int i = 0; i < _numRows; i++) {
-            for (int j = 0; j < _numColumns; j++) {
+        for(int i = 0; i < _rows; i++) {
+            for (int j = 0; j < _columns; j++) {
                 _mat[i][j] = values[i][j];
             }
         }
