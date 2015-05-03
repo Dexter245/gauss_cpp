@@ -13,8 +13,6 @@ Matrix::Matrix(int numRows, int numColumns) :
     _columns(numColumns)
 {
 
-//    this->_rows = numRows;
-//    this->_columns = numColumns;
     _initArray();
 
 }
@@ -35,7 +33,24 @@ void Matrix::multiply(Matrix otherMatrix) {
 }
 
 bool Matrix::isRowEchelonForm() {
-    return false;
+    int lastPos = -1;
+
+    for(int i = 0; i < _rows; i++){
+        int pos = 0;
+        for(int j = 0; j < _columns; j++){
+            if(_mat[i][j] != 0){
+                pos = j;
+                if(pos <= lastPos)
+                    return false;
+                break;
+            }
+            if(j == _columns-1)
+                pos = _columns;
+        }
+        lastPos = pos;
+    }
+
+    return true;
 }
 
 std::string Matrix::toString() {

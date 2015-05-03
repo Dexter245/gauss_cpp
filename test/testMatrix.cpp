@@ -63,6 +63,53 @@ TEST(Matrix, equals){
     ASSERT_FALSE(mat1.equals(mat2));
 }
 
+TEST(Matrix, isRowEchelonForm){
+    Matrix mat(3, 4);
+    double arr1[3][4] = { {1, 0, 0, 0}, {0, 1, 0, 0}, {0, 0, 1, 0} };
+    mat.set(arr1);
+    ASSERT_TRUE(mat.isRowEchelonForm());
+
+    double arr2[3][4] = { {1, 1, 1, 1}, {0, 1, 1, 1}, {0, 0, 1, 1} };
+    mat.set(arr2);
+    ASSERT_TRUE(mat.isRowEchelonForm());
+
+    double arr3[3][4] = { {1, 1, 1, 1}, {0, 1, 1, 1}, {0, 0, 0, 0} };
+    mat.set(arr3);
+    ASSERT_TRUE(mat.isRowEchelonForm());
+
+    double arr4[3][4] = { {1, 1, 1, 1}, {0, 0, 0, 0}, {0, 0, 0, 0} };
+    mat.set(arr4);
+    ASSERT_TRUE(mat.isRowEchelonForm());
+
+    double arr5[3][4] = { {0, 0, 0, 0}, {0, 0, 0, 0}, {0, 0, 0, 0} };
+    mat.set(arr5);
+    ASSERT_TRUE(mat.isRowEchelonForm());
+
+
+    double arr_1[3][4] = { {1, 1, 1, 1}, {1, 0, 0, 0}, {0, 0, 0, 0} };
+    mat.set(arr_1);
+    ASSERT_FALSE(mat.isRowEchelonForm());
+
+    double arr_2[3][4] = { {1, 1, 1, 1}, {0, 0, 0, 0}, {0, 0, 0, 1} };
+    mat.set(arr_2);
+    ASSERT_FALSE(mat.isRowEchelonForm());
+
+    double arr_3[3][4] = { {0, 0, 0, 1}, {0, 0, 0, 1}, {0, 0, 0, 1} };
+    mat.set(arr_3);
+    ASSERT_FALSE(mat.isRowEchelonForm());
+
+    double arr_4[3][4] = { {0, 1, 0, 0}, {0, 0, 0, 0}, {0, 0, 0, 1} };
+    mat.set(arr_4);
+    ASSERT_FALSE(mat.isRowEchelonForm());
+
+    double arr_5[3][4] = { {0, 0, 0, 0}, {0, 0, 0, 0}, {0, 0, 0, 1} };
+    mat.set(arr_5);
+    ASSERT_FALSE(mat.isRowEchelonForm());
+
+
+
+}
+
 
 
 
