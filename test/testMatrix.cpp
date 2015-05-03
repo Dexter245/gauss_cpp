@@ -51,15 +51,17 @@ TEST(Matrix, set){
     }
 }
 
-//TEST(Matrix, equals){
-//    Matrix mat(2, 2);
-//    mat.set({1, 1, 1});
-//    double a[2][2] = {{1, 2}, {1, 2}};
-//    double b[] = {1, 2};
-//    std::vector<double> c(b);
-//    c.
-//    mat.set(b);
-//}
+TEST(Matrix, equals){
+    Matrix mat1(2, 3);
+    Matrix mat2(2, 3);
+    double arr1[2][3] = { {1, 2, 3}, {4, 5, 6} };
+    mat1.set(arr1);
+    mat2.set(arr1);
+    ASSERT_TRUE(mat1.equals(mat2));
+    arr1[1][0] = 7;
+    mat2.set(arr1);
+    ASSERT_FALSE(mat1.equals(mat2));
+}
 
 
 
